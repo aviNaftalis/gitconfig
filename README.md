@@ -47,13 +47,11 @@ Make sure these dependencies are installed and available in your `$PATH` for ful
 
 ## Examples
 
-![checkout](assets/checkout.png)
-*checkout.png*
+![checkout](assets/checkout)
+*git checkout*
 
-![cherry-pick](assets/cherry-pick.png)
-*cherry-pick.png*
+![cherry-pick](assets/cherry-pick)
+*git cherry-pick*
 
-![log](assets/log.png)
-*log.png*
-```
-
+![log](assets/log)
+*git log*
