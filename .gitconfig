@@ -10,16 +10,16 @@
   ap = add -p
 
   # delete branch
-  bD = "!git branch -a --color=always -v | fzf --ansi --preview 'git log --color=always -p -n 10 {1}' --bind 'enter:become(git branch -D {1})' --height 40% --layout=reverse"
+  bD = "!git branch -a --color=always -v | fzf --ansi --preview 'git log --color=always -p -n 10 {1}' --bind 'enter:become(git branch -D {1})' --height 75% --layout=reverse"
 
   # create and checkout
   cb = checkout -b
   # better checkout
-  co = "!git branch | fzf --preview 'git show --color=always {-1}' --bind 'enter:become(git checkout {-1})' --height 40% --layout reverse"
+  co = "!git branch | fzf --preview 'git show --color=always {-1}' --bind 'enter:become(git checkout {-1})' --height 75% --layout reverse"
 
   cm = commit -m
   ca = commit -am
-  cp = "!branch=$(git for-each-ref --format='%(refname:short)' refs/heads/ | fzf --ansi --height 40% --layout=reverse --preview 'git log --color=always -n 5 {}'); [ -z \"$branch\" ] && exit 1; commit=$(git log --oneline --color=always \"$branch\" | fzf --ansi --height 40% --layout=reverse --preview 'git show --color=always {1}'); [ -z \"$commit\" ] && exit 1; git cherry-pick \"${commit%% *}\""
+  cp = "!branch=$(git for-each-ref --format='%(refname:short)' refs/heads/ | fzf --ansi --height 75% --layout=reverse --preview 'git log --color=always -n 5 {}'); [ -z \"$branch\" ] && exit 1; commit=$(git log --oneline --color=always \"$branch\" | fzf --ansi --height 75% --layout=reverse --preview 'git show --color=always {1}'); [ -z \"$commit\" ] && exit 1; git cherry-pick \"${commit%% *}\""
 
   cl = clean -ffxd
 
