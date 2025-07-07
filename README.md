@@ -15,6 +15,7 @@ If Bash is unavailable, manually copy the `.gitconfig` file to your home directo
 
 ```bash
 cp .gitconfig ~/.gitconfig
+```
 
 ## Dependencies
 
