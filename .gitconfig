@@ -9,18 +9,17 @@
   # add paragraph
   ap = add -p
 
-  br = b
   # delete branch
-  bD = branch -D
+  bD = "!git branch -a --color=always -v | fzf --ansi --preview 'git log --color=always -p -n 10 {1}' --bind 'enter:become(git branch -D {1})' --height 40% --layout=reverse"
 
   # create and checkout
   cb = checkout -b
-  # checkout using fzf
+  # better checkout
   co = "!git branch | fzf --preview 'git show --color=always {-1}' --bind 'enter:become(git checkout {-1})' --height 40% --layout reverse"
 
   cm = commit -m
   ca = commit -am
-  cp = cherry-pick
+  cp = "!branch=$(git for-each-ref --format='%(refname:short)' refs/heads/ | fzf --ansi --height 40% --layout=reverse --preview 'git log --color=always -n 5 {}'); [ -z \"$branch\" ] && exit 1; commit=$(git log --oneline --color=always \"$branch\" | fzf --ansi --height 40% --layout=reverse --preview 'git show --color=always {1}'); [ -z \"$commit\" ] && exit 1; git cherry-pick \"${commit%% *}\""
 
   cl = clean -ffxd
 
@@ -29,17 +28,16 @@
   dfs = diff --staged
   dfd = diff origin/develop
 
-  l = log --pretty=format:'%C(yellow)%h%x09%C(green)%<(100,trunc)%s%x09%C(red)%<(10,trunc)%ar%x09%C(blue)%an' --date=local --max-count=10
-  last = log -1 HEAD --stat
+  # show commits
+  l = "!git log --color=always --pretty=format:'%C(auto)%h %C(green)%ad %C(blue)%an %C(yellow)%d %C(reset)%s' --date=short | fzf --ansi --preview 'git show --color=always {1}' --bind 'enter:become(git show {1})' --height 75% --layout=reverse"
 
   mm = merge --no-ff
   mt = mergetool --tool=bc3
-  mod = merge origin/develop
+  md = merge origin/develop
 
   st = status --short --branch
 
   ps = push
-  pr = "!git push && ~/.gitconfig_script_run_pr.sh"
   pl = pull --no-rebase
   pld = pl origin develop --commit --no-edit
 
