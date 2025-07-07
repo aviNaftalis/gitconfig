@@ -1,0 +1,67 @@
+[core]
+  editor = vim
+  pager = diff-so-fancy | less --tabs=4 -RFX
+  autocrlf = input
+[alias]
+  aliases  = !bash -c 'git config -l | grep alias | sed 's/^alias\\.//g''
+  h = aliases
+
+  # add paragraph
+  ap = add -p
+
+  br = b
+  # delete branch
+  bD = branch -D
+
+  # create and checkout
+  cb = checkout -b
+  # checkout using fzf
+  co = "!git branch | fzf --preview 'git show --color=always {-1}' --bind 'enter:become(git checkout {-1})' --height 40% --layout reverse"
+
+  cm = commit -m
+  ca = commit -am
+  cp = cherry-pick
+
+  cl = clean -ffxd
+
+  df = diff
+  dt = difftool
+  dfs = diff --staged
+  dfd = diff origin/develop
+
+  l = log --pretty=format:'%C(yellow)%h%x09%C(green)%<(100,trunc)%s%x09%C(red)%<(10,trunc)%ar%x09%C(blue)%an' --date=local --max-count=10
+  last = log -1 HEAD --stat
+
+  mm = merge --no-ff
+  mt = mergetool --tool=bc3
+  mod = merge origin/develop
+
+  st = status --short --branch
+
+  ps = push
+  pr = "!git push && ~/.gitconfig_script_run_pr.sh"
+  pl = pull --no-rebase
+  pld = pl origin develop --commit --no-edit
+
+  rh = reset --hard
+  undo = reset --hard HEAD^
+  uncommit = reset --soft HEAD~1
+  unstage = reset --
+  delete-unstaged = restore .
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[user]
+	name = avi naftalis
+	email = avin@hailo.ai
+[help]
+	autocorrect = 1
+[pull]
+	rebase = false
+[fetch]
+	prune = true
+[interactive]
+	diffFilter = diff-so-fancy --patch
+[submodule]
+	recurse = true
