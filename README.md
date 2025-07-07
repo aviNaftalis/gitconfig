@@ -44,3 +44,16 @@ This project relies on the following external tools:
   ```
 
 Make sure these dependencies are installed and available in your `$PATH` for full functionality.
+
+## Examples
+
+![checkout](assets/checkout.png)
+*checkout.png*
+
+![cherry-pick](assets/cherry-pick.png)
+*cherry-pick.png*
+
+![log](assets/log.png)
+*log.png*
+```
+
