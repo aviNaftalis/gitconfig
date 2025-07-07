@@ -26,7 +26,7 @@ This project relies on the following external tools:
   git clone --depth 1 https://github.com/so-fancy/diff-so-fancy
   ```
 
-    and follow the instructions in the repository to set it up, or
+  and follow the instructions in the repository to set it up, or
   ```sh
   npm install -g diff-so-fancy
   ```
